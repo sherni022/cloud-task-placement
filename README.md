@@ -30,3 +30,24 @@ capacity constraints.
 The DP implementation is intentionally designed for small/medium project
 instances. Larger capacities or many servers can increase the state space.
 This is useful for demonstrating the time/space trade-off in the DAA report.
+
+## Datasets
+
+This project uses synthetically generated cloud network and VM workload data.
+
+Three sample datasets are included in the repository:
+
+- `small_network.json` – 8 servers and 8 VMs
+- `medium_network.json` – 15 servers and 15 VMs
+- `large_network.json` – 30 servers and 25 VMs
+
+All datasets use random seed 42 for reproducibility.
+
+Each dataset contains:
+- Server/network nodes
+- Latency-weighted network edges
+- Server capacity information
+- VM source servers
+- VM resource demands
+
+The datasets are generated using the same synthetic data generation logic implemented in `data_generator.py`.
