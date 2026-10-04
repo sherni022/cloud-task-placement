@@ -36,7 +36,9 @@ if "result" not in st.session_state:
 
 if run:
     graph, edges, capacities, vms = generate_cloud_data(
-        num_servers=num_servers, num_vms=num_vms, seed=int(seed)
+        num_servers=num_servers,
+        num_vms=num_vms,
+        seed=int(seed)
     )
 
     start = time.perf_counter()
@@ -85,6 +87,7 @@ if placements is None:
 avg_latency = r["total_latency"] / len(placements)
 
 used = {s: 0 for s in capacities}
+
 for p in placements:
     vm = next(x for x in vms if x["id"] == p["vm_id"])
     used[p["server"]] += vm["demand"]
@@ -94,6 +97,7 @@ total_used = sum(used.values())
 utilization = 100 * total_used / total_capacity
 
 c1, c2, c3, c4 = st.columns(4)
+
 c1.metric("VMs Placed", len(placements))
 c2.metric("Average Latency", f"{avg_latency:.2f} ms")
 c3.metric("Capacity Utilization", f"{utilization:.1f}%")
@@ -105,26 +109,66 @@ left, right = st.columns(2)
 
 with left:
     st.subheader("1. Cloud Network Model")
-    edge_df = pd.DataFrame(r["edges"], columns=["Server A", "Server B", "Latency (ms)"])
-    st.dataframe(edge_df, use_container_width=True, hide_index=True)
+
+    edge_df = pd.DataFrame(
+        r["edges"],
+        columns=["Server A", "Server B", "Latency (ms)"]
+    )
+
+    st.dataframe(
+        edge_df,
+        width="stretch",
+        hide_index=True
+    )
 
 with right:
     st.subheader("2. Server Capacities")
+
     capacity_df = pd.DataFrame(
-        [{"Server": s, "Capacity": capacities[s], "Used": used[s],
-          "Available": capacities[s] - used[s]}
-         for s in capacities]
+        [
+            {
+                "Server": s,
+                "Capacity": capacities[s],
+                "Used": used[s],
+                "Available": capacities[s] - used[s]
+            }
+            for s in capacities
+        ]
     )
-    st.dataframe(capacity_df, use_container_width=True, hide_index=True)
+
+    st.dataframe(
+        capacity_df,
+        width="stretch",
+        hide_index=True
+    )
 
 st.subheader("3. MST Backbone")
-mst_df = pd.DataFrame(r["mst_edges"], columns=["Server A", "Server B", "Latency (ms)"])
-st.dataframe(mst_df, use_container_width=True, hide_index=True)
+
+mst_df = pd.DataFrame(
+    r["mst_edges"],
+    columns=["Server A", "Server B", "Latency (ms)"]
+)
+
+st.dataframe(
+    mst_df,
+    width="stretch",
+    hide_index=True
+)
 
 st.subheader("4. DP-Based VM Placement")
+
 placement_df = pd.DataFrame(placements)
-placement_df.columns = ["VM", "Assigned Server", "Routing Latency (ms)"]
-st.dataframe(placement_df, use_container_width=True, hide_index=True)
+placement_df.columns = [
+    "VM",
+    "Assigned Server",
+    "Routing Latency (ms)"
+]
+
+st.dataframe(
+    placement_df,
+    width="stretch",
+    hide_index=True
+)
 
 st.subheader("5. Network Visualization")
 
@@ -133,44 +177,80 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Simple circular layout without requiring NetworkX.
 servers = list(capacities.keys())
 n = len(servers)
+
 positions = {}
+
 import math
+
 for i, s in enumerate(servers):
     angle = 2 * math.pi * i / n
     positions[s] = (math.cos(angle), math.sin(angle))
 
-mst_pairs = {frozenset((u, v)) for u, v, _ in r["mst_edges"]}
+mst_pairs = {
+    frozenset((u, v))
+    for u, v, _ in r["mst_edges"]
+}
 
 for u, v, w in r["edges"]:
     x1, y1 = positions[u]
     x2, y2 = positions[v]
+
     is_mst = frozenset((u, v)) in mst_pairs
+
     ax.plot(
-        [x1, x2], [y1, y2],
+        [x1, x2],
+        [y1, y2],
         linewidth=3 if is_mst else 1,
         alpha=0.9 if is_mst else 0.35,
     )
-    ax.text((x1+x2)/2, (y1+y2)/2, f"{w}ms", fontsize=8)
+
+    ax.text(
+        (x1 + x2) / 2,
+        (y1 + y2) / 2,
+        f"{w}ms",
+        fontsize=8
+    )
 
 for s, (x, y) in positions.items():
     ax.scatter([x], [y], s=650)
-    ax.text(x, y, s, ha="center", va="center", fontsize=10)
+
+    ax.text(
+        x,
+        y,
+        s,
+        ha="center",
+        va="center",
+        fontsize=10
+    )
 
 ax.set_title("Cloud Network — Bold edges are MST backbone")
 ax.axis("off")
-st.pyplot(fig, use_container_width=True)
+
+st.pyplot(
+    fig,
+    width="stretch"
+)
+
 plt.close(fig)
 
 st.subheader("6. Performance")
+
 performance = pd.DataFrame({
-    "Component": ["MST", "Shortest Paths", "DP Placement"],
+    "Component": [
+        "MST",
+        "Shortest Paths",
+        "DP Placement"
+    ],
     "Execution Time (ms)": [
         r["mst_time"] * 1000,
         r["shortest_time"] * 1000,
         r["dp_time"] * 1000,
     ],
 })
-st.bar_chart(performance.set_index("Component"))
+
+st.bar_chart(
+    performance.set_index("Component")
+)
 
 st.info(
     "Interpretation: the system minimizes the total routing latency of the VM "
