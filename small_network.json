@@ -1,0 +1,129 @@
+{
+  "dataset_name": "small_network",
+  "parameters": {
+    "num_servers": 8,
+    "num_vms": 8,
+    "random_seed": 42
+  },
+  "graph": {
+    "nodes": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "edges": [
+      {
+        "source": "S2",
+        "target": "S1",
+        "latency": 2
+      },
+      {
+        "source": "S3",
+        "target": "S2",
+        "latency": 5
+      },
+      {
+        "source": "S4",
+        "target": "S1",
+        "latency": 4
+      },
+      {
+        "source": "S5",
+        "target": "S1",
+        "latency": 12
+      },
+      {
+        "source": "S6",
+        "target": "S5",
+        "latency": 3
+      },
+      {
+        "source": "S7",
+        "target": "S5",
+        "latency": 8
+      },
+      {
+        "source": "S8",
+        "target": "S1",
+        "latency": 2
+      },
+      {
+        "source": "S2",
+        "target": "S6",
+        "latency": 6
+      },
+      {
+        "source": "S7",
+        "target": "S8",
+        "latency": 8
+      },
+      {
+        "source": "S3",
+        "target": "S8",
+        "latency": 12
+      },
+      {
+        "source": "S3",
+        "target": "S5",
+        "latency": 5
+      }
+    ]
+  },
+  "server_capacities": {
+    "S1": 8,
+    "S2": 13,
+    "S3": 8,
+    "S4": 12,
+    "S5": 12,
+    "S6": 11,
+    "S7": 7,
+    "S8": 14
+  },
+  "vms": [
+    {
+      "id": "VM1",
+      "source": "S2",
+      "demand": 4
+    },
+    {
+      "id": "VM2",
+      "source": "S2",
+      "demand": 3
+    },
+    {
+      "id": "VM3",
+      "source": "S6",
+      "demand": 2
+    },
+    {
+      "id": "VM4",
+      "source": "S2",
+      "demand": 1
+    },
+    {
+      "id": "VM5",
+      "source": "S4",
+      "demand": 3
+    },
+    {
+      "id": "VM6",
+      "source": "S2",
+      "demand": 2
+    },
+    {
+      "id": "VM7",
+      "source": "S2",
+      "demand": 4
+    },
+    {
+      "id": "VM8",
+      "source": "S5",
+      "demand": 4
+    }
+  ]
+}

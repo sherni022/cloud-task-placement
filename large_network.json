@@ -1,0 +1,423 @@
+{
+  "dataset_name": "large_network",
+  "parameters": {
+    "num_servers": 30,
+    "num_vms": 25,
+    "random_seed": 42
+  },
+  "graph": {
+    "nodes": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S29",
+      "S30"
+    ],
+    "edges": [
+      {
+        "source": "S2",
+        "target": "S1",
+        "latency": 2
+      },
+      {
+        "source": "S3",
+        "target": "S2",
+        "latency": 5
+      },
+      {
+        "source": "S4",
+        "target": "S1",
+        "latency": 4
+      },
+      {
+        "source": "S5",
+        "target": "S1",
+        "latency": 12
+      },
+      {
+        "source": "S6",
+        "target": "S5",
+        "latency": 3
+      },
+      {
+        "source": "S7",
+        "target": "S5",
+        "latency": 8
+      },
+      {
+        "source": "S8",
+        "target": "S1",
+        "latency": 2
+      },
+      {
+        "source": "S9",
+        "target": "S2",
+        "latency": 5
+      },
+      {
+        "source": "S10",
+        "target": "S4",
+        "latency": 10
+      },
+      {
+        "source": "S11",
+        "target": "S10",
+        "latency": 2
+      },
+      {
+        "source": "S12",
+        "target": "S9",
+        "latency": 5
+      },
+      {
+        "source": "S13",
+        "target": "S12",
+        "latency": 12
+      },
+      {
+        "source": "S14",
+        "target": "S12",
+        "latency": 10
+      },
+      {
+        "source": "S15",
+        "target": "S7",
+        "latency": 5
+      },
+      {
+        "source": "S16",
+        "target": "S8",
+        "latency": 11
+      },
+      {
+        "source": "S17",
+        "target": "S9",
+        "latency": 14
+      },
+      {
+        "source": "S18",
+        "target": "S1",
+        "latency": 14
+      },
+      {
+        "source": "S19",
+        "target": "S6",
+        "latency": 13
+      },
+      {
+        "source": "S20",
+        "target": "S14",
+        "latency": 7
+      },
+      {
+        "source": "S21",
+        "target": "S9",
+        "latency": 4
+      },
+      {
+        "source": "S22",
+        "target": "S7",
+        "latency": 14
+      },
+      {
+        "source": "S23",
+        "target": "S11",
+        "latency": 3
+      },
+      {
+        "source": "S24",
+        "target": "S3",
+        "latency": 8
+      },
+      {
+        "source": "S25",
+        "target": "S4",
+        "latency": 7
+      },
+      {
+        "source": "S26",
+        "target": "S12",
+        "latency": 11
+      },
+      {
+        "source": "S27",
+        "target": "S9",
+        "latency": 14
+      },
+      {
+        "source": "S28",
+        "target": "S2",
+        "latency": 13
+      },
+      {
+        "source": "S29",
+        "target": "S15",
+        "latency": 10
+      },
+      {
+        "source": "S30",
+        "target": "S4",
+        "latency": 8
+      },
+      {
+        "source": "S2",
+        "target": "S22",
+        "latency": 13
+      },
+      {
+        "source": "S17",
+        "target": "S25",
+        "latency": 11
+      },
+      {
+        "source": "S26",
+        "target": "S29",
+        "latency": 9
+      },
+      {
+        "source": "S13",
+        "target": "S22",
+        "latency": 9
+      },
+      {
+        "source": "S4",
+        "target": "S24",
+        "latency": 2
+      },
+      {
+        "source": "S21",
+        "target": "S28",
+        "latency": 8
+      },
+      {
+        "source": "S9",
+        "target": "S15",
+        "latency": 14
+      },
+      {
+        "source": "S16",
+        "target": "S17",
+        "latency": 12
+      },
+      {
+        "source": "S15",
+        "target": "S26",
+        "latency": 10
+      },
+      {
+        "source": "S11",
+        "target": "S16",
+        "latency": 4
+      },
+      {
+        "source": "S14",
+        "target": "S22",
+        "latency": 10
+      },
+      {
+        "source": "S8",
+        "target": "S24",
+        "latency": 13
+      },
+      {
+        "source": "S16",
+        "target": "S23",
+        "latency": 18
+      },
+      {
+        "source": "S3",
+        "target": "S14",
+        "latency": 14
+      },
+      {
+        "source": "S5",
+        "target": "S21",
+        "latency": 19
+      }
+    ]
+  },
+  "server_capacities": {
+    "S1": 12,
+    "S2": 7,
+    "S3": 8,
+    "S4": 11,
+    "S5": 9,
+    "S6": 11,
+    "S7": 7,
+    "S8": 8,
+    "S9": 13,
+    "S10": 12,
+    "S11": 12,
+    "S12": 13,
+    "S13": 8,
+    "S14": 13,
+    "S15": 10,
+    "S16": 11,
+    "S17": 7,
+    "S18": 13,
+    "S19": 7,
+    "S20": 10,
+    "S21": 12,
+    "S22": 13,
+    "S23": 8,
+    "S24": 12,
+    "S25": 12,
+    "S26": 8,
+    "S27": 11,
+    "S28": 11,
+    "S29": 13,
+    "S30": 12
+  },
+  "vms": [
+    {
+      "id": "VM1",
+      "source": "S13",
+      "demand": 3
+    },
+    {
+      "id": "VM2",
+      "source": "S18",
+      "demand": 2
+    },
+    {
+      "id": "VM3",
+      "source": "S7",
+      "demand": 4
+    },
+    {
+      "id": "VM4",
+      "source": "S22",
+      "demand": 4
+    },
+    {
+      "id": "VM5",
+      "source": "S22",
+      "demand": 2
+    },
+    {
+      "id": "VM6",
+      "source": "S20",
+      "demand": 3
+    },
+    {
+      "id": "VM7",
+      "source": "S13",
+      "demand": 1
+    },
+    {
+      "id": "VM8",
+      "source": "S10",
+      "demand": 3
+    },
+    {
+      "id": "VM9",
+      "source": "S7",
+      "demand": 4
+    },
+    {
+      "id": "VM10",
+      "source": "S26",
+      "demand": 3
+    },
+    {
+      "id": "VM11",
+      "source": "S15",
+      "demand": 4
+    },
+    {
+      "id": "VM12",
+      "source": "S15",
+      "demand": 2
+    },
+    {
+      "id": "VM13",
+      "source": "S17",
+      "demand": 4
+    },
+    {
+      "id": "VM14",
+      "source": "S26",
+      "demand": 2
+    },
+    {
+      "id": "VM15",
+      "source": "S22",
+      "demand": 1
+    },
+    {
+      "id": "VM16",
+      "source": "S10",
+      "demand": 3
+    },
+    {
+      "id": "VM17",
+      "source": "S3",
+      "demand": 2
+    },
+    {
+      "id": "VM18",
+      "source": "S22",
+      "demand": 3
+    },
+    {
+      "id": "VM19",
+      "source": "S8",
+      "demand": 2
+    },
+    {
+      "id": "VM20",
+      "source": "S5",
+      "demand": 1
+    },
+    {
+      "id": "VM21",
+      "source": "S2",
+      "demand": 2
+    },
+    {
+      "id": "VM22",
+      "source": "S16",
+      "demand": 1
+    },
+    {
+      "id": "VM23",
+      "source": "S15",
+      "demand": 4
+    },
+    {
+      "id": "VM24",
+      "source": "S29",
+      "demand": 2
+    },
+    {
+      "id": "VM25",
+      "source": "S23",
+      "demand": 4
+    }
+  ]
+}

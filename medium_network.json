@@ -1,0 +1,228 @@
+{
+  "dataset_name": "medium_network",
+  "parameters": {
+    "num_servers": 15,
+    "num_vms": 15,
+    "random_seed": 42
+  },
+  "graph": {
+    "nodes": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15"
+    ],
+    "edges": [
+      {
+        "source": "S2",
+        "target": "S1",
+        "latency": 2
+      },
+      {
+        "source": "S3",
+        "target": "S2",
+        "latency": 5
+      },
+      {
+        "source": "S4",
+        "target": "S1",
+        "latency": 4
+      },
+      {
+        "source": "S5",
+        "target": "S1",
+        "latency": 12
+      },
+      {
+        "source": "S6",
+        "target": "S5",
+        "latency": 3
+      },
+      {
+        "source": "S7",
+        "target": "S5",
+        "latency": 8
+      },
+      {
+        "source": "S8",
+        "target": "S1",
+        "latency": 2
+      },
+      {
+        "source": "S9",
+        "target": "S2",
+        "latency": 5
+      },
+      {
+        "source": "S10",
+        "target": "S4",
+        "latency": 10
+      },
+      {
+        "source": "S11",
+        "target": "S10",
+        "latency": 2
+      },
+      {
+        "source": "S12",
+        "target": "S9",
+        "latency": 5
+      },
+      {
+        "source": "S13",
+        "target": "S12",
+        "latency": 12
+      },
+      {
+        "source": "S14",
+        "target": "S12",
+        "latency": 10
+      },
+      {
+        "source": "S15",
+        "target": "S7",
+        "latency": 5
+      },
+      {
+        "source": "S1",
+        "target": "S15",
+        "latency": 6
+      },
+      {
+        "source": "S12",
+        "target": "S15",
+        "latency": 18
+      },
+      {
+        "source": "S3",
+        "target": "S8",
+        "latency": 17
+      },
+      {
+        "source": "S8",
+        "target": "S15",
+        "latency": 4
+      },
+      {
+        "source": "S7",
+        "target": "S13",
+        "latency": 3
+      },
+      {
+        "source": "S2",
+        "target": "S11",
+        "latency": 5
+      },
+      {
+        "source": "S14",
+        "target": "S15",
+        "latency": 6
+      }
+    ]
+  },
+  "server_capacities": {
+    "S1": 9,
+    "S2": 13,
+    "S3": 8,
+    "S4": 13,
+    "S5": 13,
+    "S6": 14,
+    "S7": 11,
+    "S8": 7,
+    "S9": 8,
+    "S10": 11,
+    "S11": 12,
+    "S12": 8,
+    "S13": 11,
+    "S14": 13,
+    "S15": 9
+  },
+  "vms": [
+    {
+      "id": "VM1",
+      "source": "S8",
+      "demand": 1
+    },
+    {
+      "id": "VM2",
+      "source": "S12",
+      "demand": 3
+    },
+    {
+      "id": "VM3",
+      "source": "S9",
+      "demand": 2
+    },
+    {
+      "id": "VM4",
+      "source": "S9",
+      "demand": 1
+    },
+    {
+      "id": "VM5",
+      "source": "S14",
+      "demand": 3
+    },
+    {
+      "id": "VM6",
+      "source": "S14",
+      "demand": 2
+    },
+    {
+      "id": "VM7",
+      "source": "S3",
+      "demand": 3
+    },
+    {
+      "id": "VM8",
+      "source": "S13",
+      "demand": 2
+    },
+    {
+      "id": "VM9",
+      "source": "S9",
+      "demand": 1
+    },
+    {
+      "id": "VM10",
+      "source": "S10",
+      "demand": 3
+    },
+    {
+      "id": "VM11",
+      "source": "S8",
+      "demand": 1
+    },
+    {
+      "id": "VM12",
+      "source": "S2",
+      "demand": 3
+    },
+    {
+      "id": "VM13",
+      "source": "S15",
+      "demand": 3
+    },
+    {
+      "id": "VM14",
+      "source": "S4",
+      "demand": 1
+    },
+    {
+      "id": "VM15",
+      "source": "S4",
+      "demand": 1
+    }
+  ]
+}
